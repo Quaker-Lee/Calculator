@@ -8,44 +8,42 @@ protocol Operation {
 // 덧셈 연산
 class AddOperation: Operation {
     func result(num1: Double, num2: Double) -> Double {
-        let addResult = num1 + num2
-        return addResult
+        return num1 + num2
     }
 }
 
 // 뺄셈 연산
 class SubstractOperation: Operation {
     func result(num1: Double, num2: Double) -> Double {
-        let minusResult = num1 - num2
-        return minusResult
+        return num1 - num2
     }
 }
 
 // 곱셈 연산
 class MultiplyOperation: Operation {
     func result(num1: Double, num2: Double) -> Double {
-        let multiplyResult = num1 * num2
-        return multiplyResult
+        return num1 * num2
     }
 }
 
 // 나눗셈 연산
 class DivisionOperation: Operation {
     func result(num1: Double, num2: Double) -> Double {
-        let divisionResult = num1 / num2
-        return divisionResult
+        if num2 == 0 {
+            print("0은 나눌 수 없습니다.")
+        }
+        return num1 / num2
     }
 }
 
 // 나머지 연산
 // 예외처리로 if문 사용함
-class ModulusOperation {
+class ModulusOperation: Operation {
     func result(num1: Double, num2: Double) -> Double {
         if num2 == 0 {
             print("0은 나머지를 구할 수 없습니다.")
         }
-        let modulusResult = num1.truncatingRemainder(dividingBy: num2)       //타입이 Double이라 %대신 truncatingRemainder사용.
-        return modulusResult
+        return num1.truncatingRemainder(dividingBy: num2)       //타입이 Double이라 %대신 truncatingRemainder사용.
     }
 }
 
